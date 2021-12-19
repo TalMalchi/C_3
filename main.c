@@ -13,22 +13,22 @@ int main()
 {
 
 
-    int letter_in_word=0;
-    char ch2;
-    ch2= getchar();
-    while (ch2!=' ' && ch2!='\t' && ch2!='\n'){
-        word[letter_in_word]=ch2;
-        ch2=getchar();
-        letter_in_word++;
+    int indexOfletter_Word=0;
+    char ch1;
+    ch1= getchar();
+    while (ch1!=' ' && ch1!='\t' && ch1!='\n'){
+        word[indexOfletter_Word]=ch1;
+        ch1=getchar();
+        indexOfletter_Word++;
     }
-    word[letter_in_word]='\0';
-    int counter_letter_text=0;
-    char ch;
-    ch = getchar();
-    while(ch!= '~'){
-        txt[counter_letter_text]=ch;
-        ch = getchar();
-        counter_letter_text++;
+    word[indexOfletter_Word]='\0';
+    int indexOfletter_Text=0;
+    char ch2;
+    ch2 = getchar();
+    while(ch2!= '~'){
+        txt[indexOfletter_Text]=ch2;
+        ch2 = getchar();
+        indexOfletter_Text++;
     }
 
 

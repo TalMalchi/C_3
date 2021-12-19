@@ -60,10 +60,10 @@ def main():
     git_rep , ids,  commit = pars_input()
     print ("your git repository is: " + git_rep)
     print ("your ids are: " + ids)
-    print ("your commit is: " + commit)
+    print ("your commit is: " + commit )
 
     print("cloning your git: " + git_rep)
-    run_cmd("git clone " + git_rep )
+    run_cmd("git clone " + git_rep)
 
     try:
         match = re.search(r'([\w-]+)\.git', git_rep)

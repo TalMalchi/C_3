@@ -15,8 +15,9 @@ bool contain(char *word, char letter)
 {
     for (int i = 0; i < sizeof(word); ++i)
     {
-        if (word[i] == letter)
+        if (word[i] == letter && AlreadyBeen[i] == 0)
         {
+            AlreadyBeen[i] = 1; //we will change the value to 1 because we now already 'visit' this letter
             return true;
         }
     }
@@ -26,14 +27,23 @@ bool contain(char *word, char letter)
 void Func3(char *word, char *txt)
 {
     int flag = 0;
-    char sAns[TXT + 1]; //define new array in size of txt (in max)
+     //define new array in size of txt (in max)
     int Counter = 0;
+    //char destination[TXT];
+    //char FinalsAns[TXT + 1]; //define new array in size of txt (in max)
 
     printf("Anagram Sequences: ");
     for (int i = 0; i < strlen(txt); i++)
     {
+        char sAns[TXT]=""; 
+        //char ch_temp = txt[i];
         Counter = 0;
         int k;
+        if (isalpha(txt[i]) == 0)
+        {
+            continue;
+        }
+
         for (int element = 0; element < strlen(word); element++)
         {
             AlreadyBeen[element] = 0; //initial the array as we didnt check any letter
@@ -74,17 +84,23 @@ void Func2(char *word, char *txt)
     int flag = 0;
     char sAns[TXT + 1]; //define new array in size of txt (in max)
     int Counter = 0;
+    // char desti[TXT];
     char *WordInAtbash = funcToAtbash(word); //define variable for the word we get in atbah
     //char ReverseWord[WORD+1]= funcToreverse(word);//find the reverse of our word
-    char *ReverseWord[WORD + 1];
+    char ReverseWord[WORD + 1];
     strcpy(ReverseWord, word);
     funcToreverse(ReverseWord);
     char *WordInReverse_Atbash = funcToAtbash(ReverseWord); //define variable for the reverse of the word we get in atbah
     printf("Atbash Sequences: ");
     for (int i = 0; i < strlen(txt); i++)
     {
+        //char ch_temp = txt[i];
         Counter = 0;
         int k;
+        if (isalpha(txt[i]) == 0)
+        {
+            continue;
+        }
         for (int element = 0; element < strlen(funcToAtbash(word)); element++)
         {
             AlreadyBeen[element] = 0; //initial the array as we didnt check any letter
@@ -180,7 +196,8 @@ void funcToreverse(char *word)
 //function get string and return it without any invalid chars: a% ^ __ dhg~ --> adhg
 char *StringWithInvalid_Chars(char *txt)
 {
-    char *valid; // [WORD+1];
+    //char *valid; // [WORD+1];
+     char *valid=malloc(WORD + 1);
     int index = 0;
     for (int i = 0; i < strlen(txt); i++)
     {
@@ -199,9 +216,12 @@ char *StringWithInvalid_Chars(char *txt)
  // gemetric value 
 void Func1(char *word, char *txt)
 {
+    //char destination[WORD];
     int gemValue_word = 0;
     gemValue_word = GimetricValue(word); //compute the gimetric value
     int flag = 0;
+    //char FinalsAns[TXT + 1]; //define new array in size of txt (in max)
+
     printf("Gematria Sequences: ");
     for (int i = 0; i < strlen(txt); i++) //moove over all txt abcde
     {
