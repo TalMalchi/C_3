@@ -35,5 +35,7 @@ int main()
     Func1(word,txt);//gimetria
     Func2(word,txt);
     Func3(word,txt);
+    
+    return 1;
 
 }

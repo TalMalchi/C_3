@@ -11,7 +11,7 @@ stringProg: main.o function.o
 	$(CC) main.o function.o -o stringProg
 
 main.o: main.c FuncDef.h
-	$(CC) $(FLAGS) - c main.c
+	$(CC) $(FLAGS) -c main.c
 
 function.o: function.c FuncDef.h
 	$(CC) $(FLAGS) -c function.c
